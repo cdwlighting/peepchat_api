@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: Sox8sVzhqAEI0yJgc8l1J5en6qV6dRN0ZPxd2y8HsR1/UrOBbv4V0reRs0fbqggugHefa0DRnP+e3y41e0L/aepgHT5GZAw/Sp9sTxEKj5dsDBarLKq5lCIi5+KXzRGU1FZASosNWNHGNrUxJ+zUeMYwxz/qUhGi/GzRyHV3V1RyBJ4Tz7tqdNBhVg8YselPFkE30YWkLkigHTdnmzP2NYiezT/SiVloSU+TfcFdaptHllSqKnR1k6Vzg17J0mq9zO9PGrqAQ2XR+E7+0pu+H5olc+RrEQn2EPY5ReklmO0qRaJ65+NhZyIiXD6dl/V6mAfyESiS2tT7oUOwDaJWGdlKalCqq5JQzrdMa6yoam7DvoPbZqMMdpJu7KpCiZAm2c4hnocR60IwmOSfSsqmcsqB5FJDtZWLbUv62JPil6MBOtWAD6HECmTpE1cSPfGH7iAesnYpVBujKfYDx+bZOwhyPvGqNCavBaAH0nvXgesjPdtqNnT1BrRw9LgukK5eqy3kGO022+1ETxJCYp5UhpMPFM5pZLm9LO75DZQgi/hwzxoteCtEw+BlEQm0juVEiFgau/HdIrVf2ZisEemcUwlR8cCnEk3i0roP7sQLw5aon1G7KY0vTxdrqvyVnUd+vcMAjG0VEqFvqoPVceWDtGchv391FzmZwT1Qa9TfaK4=
+  app: desolate-ocean-38188
+  on:
+    repo: cdwlighting/peepchat_api
